@@ -10,6 +10,8 @@ namespace AlgorithmsCore.Arrays
     {
         public static ICollection<double> RemoveDuplicatesFromSortedArray(double[] array)
         {
+            if (array.Length == 0) return array;
+
             ICollection<double> result = new List<double>();
             int startIndex = 0;
             result.Add(array[startIndex]);
