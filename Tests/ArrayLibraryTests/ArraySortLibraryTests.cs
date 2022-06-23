@@ -11,6 +11,16 @@ namespace Tests.ArrayLibraryTests
     public class ArraySortLibraryTests
     {
         [Fact]
+        public void QuickSortTest()
+        {
+            double[] input = new double[] { 3, 2, 1, 5, 4, 6, 7 };
+
+            Assert.Equal(
+                new double[] { 1, 2, 3, 4, 5, 6, 7 },
+                ArraySortLibrary.QuickSort(input, 0, input.Length - 1));
+        }
+
+        [Fact]
         public void RemoveDuplicatesFromSortedArrayTest()
         {
             // sorted ascending

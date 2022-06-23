@@ -8,6 +8,45 @@ namespace AlgorithmsCore.Arrays
 {
     public static class ArraySortLibrary
     {
+        private static void Swap(ref int left, ref int right)
+        {
+            int tmp = left;
+            left = right;
+            right = tmp;
+        }
+
+        private static int GetPivotIndex(double[] array, int minIndex, int maxIndex)
+        { 
+            int pivotIndex = minIndex - 1;
+
+            for (int i = minIndex; i < maxIndex; i++)
+            {
+                if (array[i] <= array[maxIndex])
+                {
+                    pivotIndex++;
+                    Swap(ref array[pivotIndex], ref array[maxIndex]);
+                }
+            }
+
+            return pivotIndex;
+        }
+
+        public static double[] QuickSort(double[] array, int minIndex, int maxIndex)
+        {
+            if (minIndex >= maxIndex)
+                return array;
+
+
+            int pivot = GetPivotIndex(double[] array, int minIndex, int maxIndex);
+
+            QuickSort(array, minIndex, pivot-1);
+
+            QuickSort(array, pivot + 1, maxIndex);
+
+
+            return array;
+
+        }
         public static ICollection<double> RemoveDuplicatesFromSortedArray(double[] array)
         {
             if (array.Length == 0) return array;
